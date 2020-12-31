@@ -1,0 +1,17 @@
+on: [push, pull_request]
+name: split example
+jobs:
+  example:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jungwinter/split@v1
+        id: split
+        with:
+          msg: '/release split v1.0.0'
+
+      - name: release package
+        if: steps.split.outputs._0 == '/release'
+        uses: actions/create-release@latest
+        with:
+          release_name: Release ${{ steps.split.outputs._1 }}
+          tag_name: ${{ steps.split.outputs._2 }}
