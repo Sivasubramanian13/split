@@ -8,7 +8,7 @@ jobs:
         uses: rishabhgupta/split-by@v1
         id: split
         with:
-          string: 'Alpha-'
-          split-by: '/'
+          string: 'Alpha-13'
+          split-by: '-'
       - run: | 
           echo "${{ steps.split.outputs._1}}"
