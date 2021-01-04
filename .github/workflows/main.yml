@@ -8,7 +8,7 @@ jobs:
         uses: rishabhgupta/split-by@v1
         id: split
         with:
-          string: 'feat/branch-name'
+          string: 'Alpha-13'
           split-by: '/'
       - run: | 
           echo "${{ steps.split.outputs._1}}"
