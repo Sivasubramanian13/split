@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Split version code
-      - uses: rishabhgupta/split-by@v1
+        uses: rishabhgupta/split-by@v1
         id: split
         with:
           string: 'feat/branch-name'
