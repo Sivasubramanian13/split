@@ -5,17 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Split version code
-        uses: xom9ikk/split@v1
+      - uses: rishabhgupta/split-by@v1
         id: split
         with:
-          string: 2.17.3
-          separator: .
-          limit: -1
-
-      - name: Some other action
-        uses: xom9ikk/split@v1
-        with:
-          major: ${{ steps.split.outputs._0 }}
-          minor: ${{ steps.split.outputs._1 }}
-          patch: ${{ steps.split.outputs._2 }}
-      
+          string: 'feat/branch-name'
+          split-by: '/'
+      - run: | 
+          echo "${{ steps.split.outputs._1}}"
