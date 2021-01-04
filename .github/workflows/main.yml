@@ -4,14 +4,16 @@ jobs:
   example:
     runs-on: ubuntu-latest
     steps:
-      - uses: jungwinter/split@v1
+      - name: Split version code
+        uses: xom9ikk/split@v1
         id: split
         with:
-          msg: '/release split v1.0.0'
+          string: 2.17.3
+          separator: .
+          limit: -1
 
-      - name: release package
-        if: steps.split.outputs._0 == '/release'
-        uses: actions/create-release@latest
+      - name: Some other action
         with:
-          release_name: Release ${{ steps.split.outputs._1 }}
-          tag_name: ${{ steps.split.outputs._2 }}
+          major: ${{ steps.split.outputs._0 }}
+          minor: ${{ steps.split.outputs._1 }}
+          patch: ${{ steps.split.outputs._2 }}
