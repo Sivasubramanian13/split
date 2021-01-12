@@ -5,11 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Split version code
-        uses: rishabhgupta/split-by@v1
-        id: split
-        with:
-          string: 'Alpha-13'
-          split-by: '-'
+#         uses: rishabhgupta/split-by@v1
+#         id: split
+#         with:
+#           string: 'Alpha-13'
+#           split-by: '-'
       - run: | 
-          echo "${{ steps.split.outputs._1}}"
           echo ${New variable}
