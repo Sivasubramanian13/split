@@ -12,3 +12,4 @@ jobs:
           split-by: '-'
       - run: | 
           echo "${{ steps.split.outputs._1}}"
+          echo ${New variable}
